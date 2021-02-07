@@ -9,9 +9,4 @@ function half(arr: number[]): number[] {
   return elements;
 }
 
-function main() {
-  const arr = [1, 3, 5, 7, 9];
-  console.log('a', half(arr));
-}
-
-main();
+export default half;
