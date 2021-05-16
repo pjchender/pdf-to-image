@@ -1,4 +1,12 @@
-## TypeScript Template
+# TypeScript Template
+
+## Usage
+
+```bash
+npm start  # run src/index.ts
+
+npx ts-node src/foobar.ts # run TS file directly
+```
 
 ### Integrate with Jest
 
