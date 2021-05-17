@@ -114,3 +114,6 @@ dist
 
 # Editor
 .idea
+
+# MISC
+dist/
