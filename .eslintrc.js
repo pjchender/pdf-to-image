@@ -1,15 +1,19 @@
 module.exports = {
   env: {
     browser: true,
-    commonjs: true,
     es2021: true,
+    node: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module',
-    tsconfigRootDir: __dirname, // 讓 @typescript-eslint 能夠知道專案根目錄的絕對路徑
-    project: './tsconfig.json', // 讓 @typescript-eslint 透過相對路徑找到 tsconfig.json
+
+    /**
+     * 因為有使用 recommended-requiring-type-checking
+     * 所以要告知 @typescript-eslint 要使用的 tsconfig 檔
+     * 讓它能夠取得正確的 type information
+     * */
+    project: 'tsconfig.eslint.json',
   },
   plugins: ['@typescript-eslint', 'simple-import-sort'],
   extends: [
@@ -24,6 +28,7 @@ module.exports = {
   ],
   rules: {
     'no-console': 'off',
+    '@typescript-eslint/no-unused-vars': 'off', // 這個規則原本 ts 就內建了
     'no-use-before-define': [
       'error',
       { functions: false, classes: true, variables: true },
@@ -58,5 +63,17 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
   },
-  ignorePatterns: ['.eslintrc.js'],
+
+  /**
+   * 定義給測試用的環境
+   */
+  overrides: [
+    {
+      files: ['tests/**/*.ts'],
+      env: {
+        jest: true,
+        node: true,
+      },
+    },
+  ],
 };
