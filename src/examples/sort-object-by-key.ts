@@ -1,8 +1,12 @@
-interface Dictionary {
-  [index: string]: any;
-}
+type JSONValue =
+  | string
+  | number
+  | boolean
+  | null
+  | JSONValue[]
+  | { [index: string]: JSONValue };
 
-const unordered: Dictionary = {
+const unordered: JSONValue = {
   target: 'es5',
   allowJs: true,
   lib: ['dom', 'dom.iterable', 'esnext'],
@@ -28,9 +32,11 @@ const unordered: Dictionary = {
 
 const ordered = Object.keys(unordered)
   .sort()
-  .reduce((obj: Dictionary, key) => {
-    obj[key] = unordered[key];
-    return obj;
+  .reduce((obj, key) => {
+    return {
+      ...obj,
+      [key]: unordered[key],
+    };
   }, {});
 
 const result = JSON.stringify(ordered);

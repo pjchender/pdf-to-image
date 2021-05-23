@@ -1,10 +1,10 @@
 // https://stackoverflow.com/questions/40081332/what-does-the-is-keyword-do-in-typescript
 
-function isString(test: any): test is string {
+function isString(test: unknown): test is string {
   return typeof test === 'string';
 }
 
-function example(foo: any) {
+function example(foo: unknown) {
   if (isString(foo)) {
     console.log(`it is a string${foo}`);
     console.log(foo.length);
