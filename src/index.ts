@@ -1,4 +1,4 @@
-import half from './half';
+import { half } from './sample';
 
 function main() {
   const arr = [1, 3, 5, 7, 9];
