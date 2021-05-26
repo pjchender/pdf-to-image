@@ -124,7 +124,25 @@ yarn add -D jest @types/jest @babel/preset-env @babel/preset-typescript
 
 - babel 是用來讓 jest 能夠解析 `.ts` 的檔案
 - 建立 `.babelrc`
-- 建立 `tests/tsconfig.json`
+
+  ```json
+  // .babelrc
+  {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "14"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
+  }
+  ```
+
+- 建立 `tests/tsconfig.json`（不建好像也可以）
 
 透過 `npx tsc --showConfig` 可以檢視最終吃到的設定檔。
 
