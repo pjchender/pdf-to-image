@@ -1,3 +1,5 @@
+const allExtensions = ['.ts', '.tsx', '.d.ts', '.js', '.jsx', '.json'];
+
 module.exports = {
   env: {
     browser: true,
@@ -17,7 +19,6 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'simple-import-sort'],
   extends: [
-    'airbnb-typescript',
     'eslint:recommended',
     'plugin:jest/recommended',
     'plugin:import/errors',
@@ -62,6 +63,11 @@ module.exports = {
     'import/order': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+  },
+  settings: {
+    node: {
+      extensions: allExtensions,
+    },
   },
 
   /**

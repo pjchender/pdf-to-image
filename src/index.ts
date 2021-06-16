@@ -1,8 +1,9 @@
-import { half } from './sample';
+import { example1, example2, example3 } from './examples/for-async-await';
 
 function main() {
-  const arr = [1, 3, 5, 7, 9];
-  console.log('a', half(arr));
+  void example1();
+  void example2();
+  void example3();
 }
 
-main();
+void main();
