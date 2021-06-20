@@ -1,4 +1,4 @@
-import { sleep } from '../utils/sleep';
+import { sleep } from '@/utils/sleep';
 
 /**
  * 使用 Promise.all 才會真的有一起跑

@@ -4,7 +4,7 @@
   "description": "An simple Typescript playground easy to use.",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
     "build": "tsc",
     "test": "jest",
     "lint": "eslint . --ext js,ts",
@@ -23,8 +23,10 @@
     "@types/node": "^15.12.2",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-babel-module": "^5.3.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -37,6 +39,7 @@
     "prettier": "^2.3.0",
     "ts-jest": "^27.0.2",
     "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.4"
   },
   "lint-staged": {

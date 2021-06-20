@@ -16,6 +16,8 @@ module.exports = {
      * 讓它能夠取得正確的 type information
      * */
     project: 'tsconfig.eslint.json',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    tsconfigRootDir: __dirname, // 如果是 monorepo 建議要加這行，避免找到外層的 tsconfig
   },
   plugins: ['@typescript-eslint', 'simple-import-sort'],
   extends: [
@@ -67,6 +69,14 @@ module.exports = {
   settings: {
     node: {
       extensions: allExtensions,
+    },
+    'import/resolver': {
+      'babel-module': {
+        alias: {
+          '@': './src',
+        },
+        extensions: allExtensions,
+      },
     },
   },
 
