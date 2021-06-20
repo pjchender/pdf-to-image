@@ -4,8 +4,9 @@
   "description": "An simple Typescript playground easy to use.",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node -r tsconfig-paths/register src/index.ts",
+    "dev": "ts-node -r tsconfig-paths/register src/index.ts",
     "build": "tsc",
+    "start": "node dist/index.ts",
     "test": "jest",
     "lint": "eslint . --ext js,ts",
     "lint:types": "tsc --noEmit",
@@ -46,5 +47,11 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
+  },
+  "dependencies": {
+    "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": {
+    "@": "dist"
   }
 }
