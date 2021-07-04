@@ -2,7 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## 1.0.0 (2021-07-04)
+## 0.1.0 (2021-07-04)
+
+
+### Features
+
+* integrate commitlint into husky ([1b7dffa](https://github.com/pjchender/typescript-template/commit/1b7dffa3dcabcb4abd0c745f11bdd0b4c12813f1))
 
 
 ### Bug Fixes
