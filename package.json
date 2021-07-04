@@ -11,6 +11,7 @@
     "lint": "eslint . --ext js,ts",
     "lint:types": "tsc --noEmit",
     "lint:staged": "lint-staged",
+    "release": "npx standard-version",
     "prepare": "husky install"
   },
   "keywords": [
@@ -20,11 +21,14 @@
   "author": "pjchender",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.2",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "babel-plugin-module-resolver": "^4.1.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-babel-module": "^5.3.1",
@@ -53,5 +57,10 @@
   },
   "_moduleAliases": {
     "@": "dist"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
