@@ -9,6 +9,7 @@
     "src/**/*",
     "tests/**/*",
     ".eslintrc.js",
+    "assets.d.ts",
     "jest.config.js",
     "commitlint.config.js"
   ]
