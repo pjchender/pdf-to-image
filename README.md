@@ -8,7 +8,7 @@ Run in development:
 
 ```bash
 # run in development
-npm run dev
+yarn dev
 ```
 
 Run in production:
@@ -19,8 +19,9 @@ Run in production:
 
 ```bash
 # build and run the dist files
-npm run build
-npm start
+# remember to comment out `import 'module-alias/register'` in the `index.ts` which is used for import alias
+yarn build
+yarn start
 ```
 
 ## Reference
