@@ -4,5 +4,10 @@
     "nocheck",
     "typedefs",
     "xiaomi"
-  ]
+  ],
+  "[typescript]": {
+    "editor.renderWhitespace": "all",
+    "editor.foldingStrategy": "auto",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  },
 }

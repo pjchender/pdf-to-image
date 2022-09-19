@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access,  @typescript-eslint/no-floating-promises */
 
+import { mkdirSync } from 'fs-extra';
+import * as rimraf from 'rimraf';
+
+import { INPUT_DIRECTORY, OUTPUT_DIRECTORY } from './constants';
+import { convertPdfs, createDirs, readPDFs } from './utils';
+
 async function main() {
   /**
    * Bootstrap
@@ -13,14 +19,23 @@ async function main() {
   /**
    * Import modules using import alias with dynamic import...
    */
-  const { sleep } = await import('@/utils/sleep');
-  const { example1 } = await import('@/examples/for-async-await');
+  // const { INPUT_DIRECTORY } = await import('./constants');
 
   /**
    * Write the code below...
    */
-  await sleep('sleep', 1000);
-  await example1();
+  rimraf.sync(OUTPUT_DIRECTORY);
+  mkdirSync(OUTPUT_DIRECTORY);
+
+  const fileNamesWithExtension = await readPDFs(INPUT_DIRECTORY);
+  const fileNames = createDirs(fileNamesWithExtension);
+
+  // 需要根據 PDF 的解析度調整輸出的圖檔尺寸
+  const dimension = {
+    width: 1191 * 1.5,
+    height: 842 * 1.5,
+  };
+  await convertPdfs(fileNames, dimension, 'jpg');
 }
 
 main().catch((error) => {
